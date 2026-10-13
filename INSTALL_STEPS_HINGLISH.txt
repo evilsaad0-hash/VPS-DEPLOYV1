@@ -1,0 +1,23 @@
+EVILSAAD Fresh Bot - quick install
+
+   cd zylexnode-complete-bundle
+3) Preflight:
+   bash scripts/preflight.sh
+4) Install:
+   bash scripts/install.sh
+5) Config:
+   nano /opt/zylexnode/.env
+   DISCORD_TOKEN aur MAIN_ADMIN_ID set karo. Existing production .env/database ko replace mat karna.
+6) Diagnostics:
+   bash /opt/zylexnode/scripts/doctor.sh
+   bash /opt/zylexnode/scripts/kvm-doctor.sh
+7) Start/restart:
+   systemctl enable --now voxelcloud-bot
+   systemctl restart voxelcloud-bot
+   systemctl status voxelcloud-bot --no-pager -l
+8) Logs:
+   journalctl -u voxelcloud-bot -n 100 --no-pager -o cat
+
+Service ka naam voxelcloud-bot hai, bot nahi.
+
+KVM SSHX note: guest agent offline + SSH port 22 refused ho to sirf bot restart se fix nahi hoga. Guest OS ko boot/network/guest-agent chahiye. Host aur guest diagnostics chalao; live qcow2 copy ya virsh destroy mat karo.
